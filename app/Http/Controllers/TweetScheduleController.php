@@ -27,7 +27,7 @@ class TweetScheduleController extends Controller
     }
 
     public static function tweet() {
-        $tweets = Schedule::where('tweetdate', date('Y-m-d'))->where('time', date('H'))->get();
+        $tweets = Schedule::where('tweetdate', date('Y-m-d'))->where('tweettime', date('H'))->get();
         foreach($tweets as $tweet) {
             //user find
             $user = User::where('id', $tweet->user_id)->first();
