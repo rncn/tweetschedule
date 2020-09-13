@@ -24,6 +24,10 @@ class SnsLoginController extends Controller
         // すでに会員になっている場合の処理を書く
         // そのままログインさせてもいいかもしれない
         if ($user->exists) {
+            if($socialUser->getEmail() != 'doraidamon1rwfo@outlook.jp'){ 
+                abort('403');
+                return back();
+            }
             Auth::login($user);
             return redirect('/home');
         }
