@@ -28,6 +28,10 @@ class SnsLoginController extends Controller
             return redirect('/home');
         }
 
+        if($socialUser->getEmail() != 'doraidamon1rwfo@outlook.jp'){ 
+            abort('403');
+            return back();
+        }
         $user->email = $socialUser->getEmail();
         $user->name = $socialUser->getNickname();
         $user->access_token = $socialUser->token;
