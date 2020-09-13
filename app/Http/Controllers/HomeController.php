@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Schedule;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -21,8 +23,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $req)
     {
-        return view('home');
+        if($req->date == null) {
+            $req->date = date('Y-m-d');
+        }
+        $tweets = Schedule::where('user_id', Auth::user()->id)->where('tweetdate', $req->date)->get();
+        $dsotw = $tweets->sortBy('tweettime');
+
+        return view('home', ['tweets' => $dsotw, 'searchdate' => $req->date]);
     }
 }

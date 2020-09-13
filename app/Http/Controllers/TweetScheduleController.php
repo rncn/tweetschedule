@@ -40,6 +40,7 @@ class TweetScheduleController extends Controller
             $res = get_object_vars($twitter->post("statuses/update", [
                 "status" => $tweet->content
             ]));
+            $tweet->delete();
             Log::debug('予約投稿ed'. $res);
         }
         return;

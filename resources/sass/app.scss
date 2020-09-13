@@ -56,9 +56,16 @@
 .btn, .form-control, .navbar-toggler {
     border-radius: $border-radius;
     &:focus, &:active {
-        box-shadow:0px 0px 2px 1px #575757 inset !important;
+        box-shadow:  6px 6px 12px #e8e8e8, 
+             -6px -6px 12px #ffffff !important;
     }
     
+}
+.alert {
+    background-color: #fff !important;
+    border: none !important;
+    box-shadow:  6px 6px 12px #e8e8e8, 
+             -6px -6px 12px #ffffff !important;
 }
 .navbar {
     width: 100%;
@@ -66,8 +73,9 @@
     position: fixed;
     top: 0;
     left: 0;
-    box-shadow: 0px 0px 2px 2px rgb(204, 204, 204);
-    background-color: $theme-light !important;
+    background-color: white;
+    box-shadow:  6px 6px 12px #e8e8e8, 
+             -6px -6px 12px #ffffff;
     .navbar-brand {
         font-size: $header-height / 2;
         line-height: $header-height;
@@ -78,7 +86,17 @@
     z-index: 4;
 }
 .card {
-    border-radius: $border-radius;
+    margin: 20px 0;
+    border-radius: $border-radius* 10;
+    background: white;
+    box-shadow:  6px 6px 12px #e8e8e8, 
+             -6px -6px 12px #ffffff;
+    border: none;
+    .card-header {
+        background-color: white;
+        border-radius: $border-radius* 10;
+        border: none;
+    }
 }
 .novmargin {
     //no vertical margin

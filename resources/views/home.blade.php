@@ -15,6 +15,33 @@
                     </form>
                 </div>
             </div>
+            <div class="card">
+              <div class="card-header">{{ $searchdate }} の予約ツイート一覧</div>
+
+              <div class="card-body">
+                <h2>予約つ威遠</h2>
+                <form action="{{route('home')}}">
+                  <input name="date" type="date" value="{{ $searchdate }}">
+                  <input type="submit" value="Search">
+                </form>
+                <table  class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">ツイート予定時刻</th>
+                      <th scope="col">ツイート内容</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach($tweets as $tweet)
+                    <tr>
+                      <td>{{$tweet->tweetdate}}&nbsp;{{$tweet->tweettime}}:00</td>
+                      <td><pre>{{$tweet->content}}</pre></td>
+                    </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
+          </div>
         </div>
     </div>
 
