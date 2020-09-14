@@ -9,14 +9,15 @@ use App\Http\Controllers\TweetController;
 
 class AnalyzerController extends Controller
 {
-    function getAnalyze() {
-        $users = User::get();
+    public static function getAnalyze() {
+        $user_model = new User;
+        $users = $user_model->get();
         foreach($users as $user) {
             $analyze = new Analyze;
             $analyze->user_id = $user->id;
-            $analyze->follower = $this->follower($user);
-            $analyze->following = $this->following($user);
-            $analyze->listed = $this->listed($user);
+            $analyze->follower = self::follower($user);
+            $analyze->following = self::following($user);
+            $analyze->listed = self::listed($user);
             $analyze->save();
         }
         return;
