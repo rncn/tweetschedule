@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Schedule;
 use App\Models\User;
 use Abraham\TwitterOAuth\TwitterOAuth;
+use App\Http\Controllers\TweetController;
 use Auth;
 
 class TweetScheduleController extends Controller
@@ -32,10 +33,7 @@ class TweetScheduleController extends Controller
             //user find
             $user = User::where('id', $tweet->user_id)->first();
             //twitter setup
-            $twitter = new TwitterOAuth(env('TWITTER_API_KEY'),
-            env('TWITTER_API_SECRET'),
-            $user->access_token,
-            $user->access_token_secret);
+            $twitter = TweetScheduleController::makeTwitter();
             //Tweeeeeeeeeeted!!!!!!!
             $res = get_object_vars($twitter->post("statuses/update", [
                 "status" => $tweet->content

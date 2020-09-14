@@ -19,4 +19,10 @@ class TweetController extends Controller
         session()->flash('flash_message', http_build_query($res));
         return back();
     }
+    public static function makeTwitter() {
+        return $twitter = new TwitterOAuth(env('TWITTER_API_KEY'),
+            env('TWITTER_API_SECRET'),
+            $user->access_token,
+            $user->access_token_secret);
+    }
 }

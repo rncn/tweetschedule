@@ -24,18 +24,17 @@ class SnsLoginController extends Controller
         // すでに会員になっている場合の処理を書く
         // そのままログインさせてもいいかもしれない
         if ($user->exists) {
-            if($socialUser->getEmail() != 'doraidamon1rwfo@outlook.jp'){ 
-                abort('403');
-                return back();
+            $this->isAdmin($socialUser->getEmail());
+            //idが変更されてないかチェック
+            if($socialUser->getNickname() != $user->name) {
+                $user->name = $socialUser->getNickname();
+                $user->save();
             }
             Auth::login($user);
             return redirect('/home');
         }
 
-        if($socialUser->getEmail() != 'doraidamon1rwfo@outlook.jp'){ 
-            abort('403');
-            return back();
-        }
+        $this->isAdmin($socialUser->getEmail());
         $user->email = $socialUser->getEmail();
         $user->name = $socialUser->getNickname();
         $user->access_token = $socialUser->token;
@@ -45,5 +44,29 @@ class SnsLoginController extends Controller
         Auth::login($user);
 
         return redirect()->route('home');
+    }
+
+    public static function isAdmin($email) {
+        switch ($email) {
+            case env('TWITTER_ACCOUNT_1'):
+                $status = false;
+                break;
+            case env('TWITTER_ACCOUNT_2'):
+                $status = false;
+                break;
+            case env('TWITTER_ACCOUNT_3'):
+                $status = false;
+                break;
+            case env('TWITTER_ACCOUNT_4'):
+                $status = false;
+                break;
+            case env('TWITTER_ACCOUNT_5'):
+                $status = false;
+                break;
+            default: 
+                abort('403');
+                return false;
+        }
+        return $status;
     }
 }

@@ -5,7 +5,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">ようこそ</div>
-
+                <p>注意：idを変えたらログインし直せ</p>
                 <div class="card-body">
                     <a href="#" data-toggle="modal" data-target="#createt" class="btn btn-lg btn-block btn-success">予約ツイートの新規作成</a>
                     <form action="{{ route('tweetnow') }}" method="POST">
