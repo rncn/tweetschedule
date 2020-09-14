@@ -5,7 +5,7 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Http\Controllers\TweetScheduleController;
-use App\Http\Controllers\AnalyzeController;
+use App\Http\Controllers\AnalyzerController;
 
 class Kernel extends ConsoleKernel
 {
