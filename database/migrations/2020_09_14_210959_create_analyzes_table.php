@@ -15,7 +15,7 @@ class CreateAnalyzesTable extends Migration
     {
         Schema::create('analyzes', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->integer('follower')->nullable();
             $table->integer('following')->nullable();
             $table->integer('listed')->nullable();
