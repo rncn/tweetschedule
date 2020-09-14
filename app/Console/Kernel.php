@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         $schedule->call(function () {
             TweetScheduleController::tweet();
-            AnalyzeController::getAnalyze();
+            AnalyzerController::getAnalyze();
         })->everyFifteenMinutes();
     }
 
