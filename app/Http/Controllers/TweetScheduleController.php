@@ -7,6 +7,7 @@ use App\Models\Schedule;
 use App\Models\User;
 use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Http\Controllers\TweetController;
+use Log;
 
 use Auth;
 
