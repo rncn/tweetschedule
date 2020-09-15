@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Analyze;
 use Illuminate\Http\Request;
 use App\Http\Controllers\TweetController;
+use App\Http\Controllers\TweetScheduleController;
 
 class AnalyzerController extends Controller
 {
