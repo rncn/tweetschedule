@@ -102,3 +102,17 @@
     //no vertical margin
     margin: 0 auto !important;
 }
+
+//custom
+
+.tweetstable {
+    & > .controll {
+        display: none;
+        border: none;
+    }
+    &:hover > .controll {
+        display: inline-block;
+        position: absolute;
+        right: 0;
+    }
+}

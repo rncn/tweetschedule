@@ -29,13 +29,17 @@
                     <tr>
                       <th scope="col">ツイート予定時刻</th>
                       <th scope="col">ツイート内容</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
                     @foreach($tweets as $tweet)
-                    <tr>
+                    <tr class="tweetstable">
                       <td>{{$tweet->tweetdate}}&nbsp;{{$tweet->tweettime}}:00</td>
-                      <td><pre>{{$tweet->content}}</pre></td>
+                      <td><pre>{{$tweet->content}}</pre></td> 
+                      <td class="controll">
+                        <a href="#" class="btn btn-warning">削除</a>
+                      </td>
                     </tr>
                     @endforeach
                   </tbody>

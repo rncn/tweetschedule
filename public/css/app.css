@@ -11146,3 +11146,14 @@ button.close {
   margin: 0 auto !important;
 }
 
+.tweetstable > .controll {
+  display: none;
+  border: none;
+}
+
+.tweetstable:hover > .controll {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+
