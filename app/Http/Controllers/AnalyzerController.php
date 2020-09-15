@@ -26,28 +26,28 @@ class AnalyzerController extends Controller
     private static function follower($user) {
         $twitter = TweetController::makeTwitter($user->id);
         //get users
-        $twd =json_decode($twitter->get('users/show', [
+        $twitter->get('users/show', [
             'screen_name' => $user->name
-        ]), true);
+        ]);
         
-        return $twd['followers_count'];
+        return $twitter->followers_count;
     }
     private static function following($user) {
 
         $twitter = TweetController::makeTwitter($user->id);
         //get users
-        $twd = json_decode($twitter->get('users/show', [
+        $twitter->get('users/show', [
             'screen_name' => $user->name
-        ]), true);
-        return $twd['freinds_count'];
+        ]);
+        return $twitter->freinds_count;
     }
     private static function listed($user) {
         
         $twitter = TweetController::makeTwitter($user->id);
         //get users
-        $twd =json_decode($twitter->get('users/show', [
+        $twitter->get('users/show', [
             'screen_name' => $user->name
-        ]), true);
-        return $twd['listed_count'];
+        ]);
+        return $twitter->listed_count;
     }
 }
