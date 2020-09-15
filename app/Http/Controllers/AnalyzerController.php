@@ -24,8 +24,8 @@ class AnalyzerController extends Controller
         return;
     }
     private static function follower($user) {
-        
-        $twitter = TweetScheduleController::makeTwitter();
+        $twsc_model = new TweetScheduleController;
+        $twitter = $twsc_model::makeTwitter();
         //get users
         $twitter->get('users/show', [
             'screen_name' => $user->name
@@ -34,8 +34,8 @@ class AnalyzerController extends Controller
         return $twitter->followers_count;
     }
     private static function following($user) {
-        
-        $twitter = TweetScheduleController::makeTwitter();
+        $twsc_model = new TweetScheduleController;
+        $twitter = $twsc_model::makeTwitter();
         //get users
         $twitter->get('users/show', [
             'screen_name' => $user->name
