@@ -30,7 +30,7 @@ class AnalyzerController extends Controller
             'screen_name' => $user->name
         ]);
         
-        return $twitter->followers_count;
+        return $twitter['followers_count'];
     }
     private static function following($user) {
 
@@ -39,7 +39,7 @@ class AnalyzerController extends Controller
         $twitter->get('users/show', [
             'screen_name' => $user->name
         ]);
-        return $twitter->freinds_count;
+        return $twitter['freinds_count'];
     }
     private static function listed($user) {
         
@@ -48,6 +48,6 @@ class AnalyzerController extends Controller
         $twitter->get('users/show', [
             'screen_name' => $user->name
         ]);
-        return $twitter->listed;
+        return $twitter['listed_count'];
     }
 }
