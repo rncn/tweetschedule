@@ -48,19 +48,19 @@ class SnsLoginController extends Controller
 
     public static function isAdmin($email) {
         switch ($email) {
-            case config('twitter.1'):
+            case config('app.twitter.1'):
                 $status = false;
                 break;
-            case config('twitter.2'):
+            case config('app.twitter.2'):
                 $status = false;
                 break;
-            case config('twitter.3'):
+            case config('app.twitter.3'):
                 $status = false;
                 break;
-            case config('twitter.4'):
+            case config('app.twitter.4'):
                 $status = false;
                 break;
-            case config('twitter.5'):
+            case config('app.twitter.5'):
                 $status = false;
                 break;
             default: 
