@@ -28,7 +28,7 @@ class AnalyzerController extends Controller
         //get users
         $twd =json_decode($twitter->get('users/show', [
             'screen_name' => $user->name
-        ]));
+        ]), true);
         
         return $twd['followers_count'];
     }
@@ -38,7 +38,7 @@ class AnalyzerController extends Controller
         //get users
         $twd = json_decode($twitter->get('users/show', [
             'screen_name' => $user->name
-        ]));
+        ]), true);
         return $twd['freinds_count'];
     }
     private static function listed($user) {
@@ -47,7 +47,7 @@ class AnalyzerController extends Controller
         //get users
         $twd =json_decode($twitter->get('users/show', [
             'screen_name' => $user->name
-        ]));
+        ]), true);
         return $twd['listed_count'];
     }
 }
