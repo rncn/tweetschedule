@@ -123,6 +123,14 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    //Twitter Accounts
+    'twitter.1' => env('TWITTER_ACCOUNT_1'),
+    'twitter.2' => env('TWITTER_ACCOUNT_2'),
+    'twitter.3' => env('TWITTER_ACCOUNT_3'),
+    'twitter.4' => env('TWITTER_ACCOUNT_4'),
+    'twitter.5' => env('TWITTER_ACCOUNT_5'),
+
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
