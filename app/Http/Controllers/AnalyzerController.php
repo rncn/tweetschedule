@@ -24,7 +24,7 @@ class AnalyzerController extends Controller
         return;
     }
     private static function follower($user) {
-        $twitter = TweetController::makeTwitter();
+        $twitter = TweetController::makeTwitter($user->id);
         //get users
         $twitter->get('users/show', [
             'screen_name' => $user->name
@@ -34,7 +34,7 @@ class AnalyzerController extends Controller
     }
     private static function following($user) {
 
-        $twitter = TweetController::makeTwitter();
+        $twitter = TweetController::makeTwitter($user->id);
         //get users
         $twitter->get('users/show', [
             'screen_name' => $user->name
@@ -43,7 +43,7 @@ class AnalyzerController extends Controller
     }
     private static function listed($user) {
         
-        $twitter = TweetController::makeTwitter();
+        $twitter = TweetController::makeTwitter($user->id);
         //get users
         $twitter->get('users/show', [
             'screen_name' => $user->name

@@ -33,7 +33,7 @@ class TweetScheduleController extends Controller
             //user find
             $user = User::where('id', $tweet->user_id)->first();
             //twitter setup
-            $twitter = TweetScheduleController::makeTwitter();
+            $twitter = TweetScheduleController::makeTwitter($user->id);
             //Tweeeeeeeeeeted!!!!!!!
             $res = get_object_vars($twitter->post("statuses/update", [
                 "status" => $tweet->content
