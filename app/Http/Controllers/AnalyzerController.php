@@ -48,6 +48,7 @@ class AnalyzerController extends Controller
         $twitter->get('users/show', [
             'screen_name' => $user->name
         ]);
+        
         return $twitter->listed_count;
     }
 }
