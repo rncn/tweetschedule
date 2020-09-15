@@ -7,6 +7,7 @@ use App\Models\Schedule;
 use App\Models\User;
 use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Http\Controllers\TweetController;
+
 use Auth;
 
 class TweetScheduleController extends Controller
@@ -33,7 +34,7 @@ class TweetScheduleController extends Controller
             //user find
             $user = User::where('id', $tweet->user_id)->first();
             //twitter setup
-            $twitter = TweetScheduleController::makeTwitter($user->id);
+            $twitter = TweetController::makeTwitter($user->id);
             //Tweeeeeeeeeeted!!!!!!!
             $res = get_object_vars($twitter->post("statuses/update", [
                 "status" => $tweet->content
