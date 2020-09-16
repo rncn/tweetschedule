@@ -41,7 +41,7 @@ class TweetScheduleController extends Controller
                 "status" => $tweet->content
             ]));
             $tweet->delete();
-            Log::debug('予約投稿ed'. $res);
+            Log::debug('予約投稿ed'. json_decode($res));
         }
         return;
     }
